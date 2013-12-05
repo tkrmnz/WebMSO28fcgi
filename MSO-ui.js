@@ -13,18 +13,14 @@
 	$("#radioDC2").buttonset();
 	$("#accordion").accordion({
 		autoHeight: false,
-		//{ animated: 'bounceslide' },
 		collapsible: true,
 		active: false,
-//		{event: "mouseover"},
 	 	icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' }
 	 	});
 	$("#accordion2").accordion({
 		autoHeight: false,
-		//{ animated: 'bounceslide' },
 		collapsible: true,
 		active: false,
-//		{event: "mouseover"},
 	 	icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' }
 	 	});
 	
@@ -111,8 +107,6 @@
 	);
 	//Voff A2
 	
-//	$( "#vOff2" ).val( ($( "#slider-vertical5" ).slider( "value" )-19)*vOffTick[$("#slider-vertical4").slider("value")]+"mV" );
-//		$( "#vOff2" ).val( $( "#slider-vertical5" ).slider( "value" ) );
 
 	$( "#slider-vertical3" ).slider({
 			orientation: "horizontal",
@@ -146,15 +140,12 @@
 			max: 39,
 			value: 19,
 			slide: function( event, ui ) {
-//				$( "#trgA1" ).val( ui.value );
 				$( "#trgA1" ).val( (100/vDivM0)*(ui.value-19)+"mV" );
-//				trigPosV = (ui.value -19)/10;
 				TRIGV0 = (100/vDivM0)*(ui.value-19);
 				changeStat = 1;
 
 			}
 		});
-//		$( "#trgA1" ).val( $( "#slider-verticalTrgA1" ).slider( "value" ) );
 		$( "#trgA1" ).val( (100/vDivM0)*($( "#slider-verticalTrgA1" ).slider( "value" )-19)+"mV" );
 	//TrigV A1
 	
@@ -166,8 +157,6 @@
 			max: 255,
 			value: 1,
 			slide: function( event, ui ) {
-//				$( "#wdthA1" ).val( (ui.value*nsClkRate)+"nS" );
-//				$( "#wdthA1" ).val( WdthMdA0 );
 				$( "#wdthA1" ).val( pulseWdthCalc(WdthMdA0,nsClkRate,ui.value) );
 				TRIGWD0 =  pulseWdthCalcRaw(WdthMdA0,nsClkRate,ui.value);
 
@@ -175,15 +164,7 @@
 			},
 		});
 
-//		$( "#wdt   hA1" ).val(  ($("#slider-verticalWdthA1" ).slider("value")*nsClkRate)+"nS");
 		$( "#wdthA1" ).val(  pulseWdthCalc(WdthMdA0,nsClkRate,$("#slider-horizontalWdthA1" ).slider("value")));
-//		$( "#wdthA1" ).val(  WdthMdA0);
-
-//		$( "#wdthA1" ).val( function(){if(WdthMdA0d=="T") $("#slider-verticalWdthA1" ).slider("value");
-//					 else $("#slider-verticalWdthA1" ).slider("");
-//					} );
-	//Trig Width A1
-	
 	$( "#slider-verticalTrgA2" ).slider({
 			orientation: "vertical",
 			range: "min",
@@ -191,13 +172,11 @@
 			max: 39,
 			value: 19,
 			slide: function( event, ui ) {
-//				$( "#trgA2" ).val( ui.value );
 				$( "#trgA2" ).val( (100/vDivM1)*(ui.value-19)+"mV" );
 				TRIGV1 = (100/vDivM1)*(ui.value-19);
 				changeStat = 1;
 			}
 		});
-//		$( "#trgA2" ).val( $( "#slider-verticalTrgA2" ).slider( "value" ) );
 		$( "#trgA2" ).val( (100/vDivM1)*($( "#slider-verticalTrgA2" ).slider( "value" )-19)+"mV" );
 
 	//TrigV A2
@@ -210,15 +189,12 @@
 			max: 255,
 			value: 1,
 			slide: function( event, ui ) {
-//				$( "#wdthA1" ).val( (ui.value*nsClkRate)+"nS" );
-//				$( "#wdthA1" ).val( WdthMdA0 );
 				$( "#wdthA2" ).val( pulseWdthCalc(WdthMdA1,nsClkRate,ui.value) );
 				TRIGWD1 =  pulseWdthCalcRaw(WdthMdA1,nsClkRate,ui.value);
 				changeStat = 1;
 			},
 		});
 
-//		$( "#wdt   hA1" ).val(  ($("#slider-verticalWdthA1" ).slider("value")*nsClkRate)+"nS");
 		$( "#wdthA2" ).val(  pulseWdthCalc(WdthMdA1,nsClkRate,$("#slider-horizontalWdthA2" ).slider("value")));
 
 	//Trig Width A2
@@ -396,7 +372,6 @@ var	sidCur=0;
 		else if(TRGCH=="SPI"){TRLASLP = "T";}
 
 		changeStat = 1;
-//		document.getElementById("#wdthA1").innerHTML = WdthMdA0;
 
 		showTrgSet();
 		DocRdy = 1;
@@ -1072,19 +1047,3 @@ var	sidCur=0;
 
 
 	});
-/*
- 	function setChangeStat(i){
-//		var tarray
-		switch(i){
-			case 0x01: DCA = "D";	break;
-			case 0x02: DCA = "A";	break;
-			case 0x04: DCB = "D"; 	break;
-			case 0x08: DCB = "A";	break;
-		}
-		
-//		changeStat = i;
-//		changeStatUpdate = true;
-//		alert('test1');
-		
-	}
- */

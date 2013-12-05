@@ -9,11 +9,8 @@ $(function () {
 		frmTop=2,frmBtm=-2,frmLABtm=-3.25,frmLeft=0,frmRight=999,
 	  	trigPosH,triPosV,curAH,curAV,curBH,curBV;
 		
-//	var trigPosH;
-//	var	trigPosV;
 	var trigPosH = 500;
 	var trigPosV = 0.0;
-//	var	trigPosV;
 	var curAH = 110,curAV = 0.35;
 	var curBH = 720,curBV = -0.85;
     var updateInterval = 30;
@@ -21,11 +18,7 @@ $(function () {
     var prevCursSel = 0;
     var CursSel = 0;
        
- //  $("button").button();
-   
-   
      var plotOptionsNone = {  
-//	    var curAcolor="#008000",
        	colors: ["#00f000","#f00080",
 			"#663300",//LA
 			"#f00000",
@@ -39,17 +32,13 @@ $(function () {
 			"#a02020",//TrigPosV
 			"#20a020",//CurA
 			"#20a020",//CurA
-//			curAColor,//CurA
-//			curAColor,//CurA
 			"#2020a0",//CurB
 			"#2020a0"//CurB
 		],
-//		crosshair: { mode: "x", color:"#808080"},   
 	    series: { lines:{lineWidth:1},shadowSize: 0 }, // drawing is faster without shadows
         yaxis: { min: -3.25, max: 2.0,show:false},
         xaxis: { min: 0, max: 999,show: false },
 		lineWidth: [0],
-		//lines: { steps:true},
         grid: {hoverable: true,
         		clickable: true,
              backgroundColor: { colors: ["#000","#000"]},
@@ -76,7 +65,6 @@ $(function () {
     };  
   
     var plotOptionsX = {  
-//	    var curAcolor="#008000",
        	colors: ["#00f000","#f00080",
 			"#663300",//LA
 			"#f00000",
@@ -90,8 +78,6 @@ $(function () {
 			"#a02020",//TrigPosV
 			"#20a020",//CurA
 			"#20a020",//CurA
-//			curAColor,//CurA
-//			curAColor,//CurA
 			"#2020a0",//CurB
 			"#2020a0"//CurB
 		],
@@ -100,7 +86,6 @@ $(function () {
         yaxis: { min: -3.25, max: 2.0,show:false},
         xaxis: { min: 0, max: 999,show: false },
 		lineWidth: [0],
-		//lines: { steps:true},
         grid: {hoverable: true,
         		clickable: true,
              backgroundColor: { colors: ["#000","#000"]},
@@ -126,7 +111,6 @@ $(function () {
         }
     };  
     var plotOptionsY = {  
-//	    var curAcolor="#008000",
        	colors: ["#00f000","#f00080",
 			"#663300",//LA
 			"#f00000",
@@ -140,8 +124,6 @@ $(function () {
 			"#a02020",//TrigPosV
 			"#20a020",//CurA
 			"#20a020",//CurA
-//			curAColor,//CurA
-//			curAColor,//CurA
 			"#2020a0",//CurB
 			"#2020a0"//CurB
 		],
@@ -150,7 +132,6 @@ $(function () {
         yaxis: { min: -3.25, max: 2.0,show:false},
         xaxis: { min: 0, max: 999,show: false },
 		lineWidth: [0],
-		//lines: { steps:true},
         grid: {hoverable: true,
         		clickable: true,
              backgroundColor: { colors: ["#000","#000"]},
@@ -188,13 +169,6 @@ $(function () {
     	getCurH(curBH),getCurV(curBV)
     	], plotOptions);
  
- 
- //var legends = $("#plotarea .legendLabel");
- //   legends.each(function () {
- //       // fix the widths so they don't jump around
- //       $(this).css('width', $(this).width());
- //   });
-
     var updateLegendTimeout = null;
     var latestPosition = null;
     var hoverOn = 0;
@@ -211,50 +185,29 @@ $(function () {
         if (pos.x < axes.xaxis.min || pos.x > axes.xaxis.max ||
         	pos.y < axes.yaxis.min || pos.y > axes.yaxis.max)
             return;
-//alert("touchend");
-
-//		alert(Math.abs(pos.x.toFixed(0)));
-//		alert(pos.x.toFixed(0));
-//		alert(trigPosV);
-//            if(Math.abs(pos.x.toFixed(0)-trigPosH)>5) {
-//		trigPosH = 200;
 				if(hoverOn) hoverOn = 0;
 				else hoverOn = 1;
-//				trigPosH = pos.x.toFixed(0);
 
 			switch(cursSel){
 				case 1:
 					trigPosH = pos.x.toFixed(0);
-//					plotOptions = plotOptionsX;
 				break;
 				case 2:
 					trigPosV = pos.y.toFixed(2);
-//					plotOptions = plotOptionsY;
 				break;
 				case 3:
 					curAH = pos.x.toFixed(0);
-//					plotOptions = plotOptionsX;
 				break;
 				case 4:
 					curAV = pos.y.toFixed(2);
-//					plotOptions = plotOptionsY;
 				break;
 				case 5:
 					curBH = pos.x.toFixed(0);
-//					plotOptions = plotOptionsX;
 				break;
 				case 6:
 					curBV = pos.y.toFixed(2);
-//					plotOptions = plotOptionsY;
 				break;
 			}
-
-//		 	document.getElementById("diffABH").innerHTML = "<h1>T="+curTH()+" A="+curAHPos()+" B="+curBHPos()+" A-B="+deltaABH()+"</h1>";
-//		 	document.getElementById("diffABV").innerHTML = "<h1>A-B(A1/A2): "+deltaABV()+"</h1>";
-
- 
-//  			$("#diffABH").text(Math.abs(curAH-curBH));
-//			$("#diffABV").text(Math.abs(curAV-curBV).toFixed(2));
 
 				changeStat = 1;
 				reDraw = 1;
@@ -270,48 +223,12 @@ $(function () {
 			    	getCurH(curBH),getCurV(curBV)
 			    	], plotOptions);
 		 		}
- //		}
-//legends.eq(i).text(series.label.replace(/=.*/, "= " + y.toFixed(2)));
-//		trigPosH = pos.x;
-//		alert(trigPosH);
     }
-/*
     function updateLegend2() {
         updateLegendTimeout = null;
         
         var pos = latestPosition;
         var axes = plot.getAxes();
-
-        if (pos.x < axes.xaxis.min || pos.x > axes.xaxis.max ||
-        	pos.y < axes.yaxis.min || pos.y > axes.yaxis.max)
-            return;
-		if(hoverOn){
-			$("#y").text(pos.x.toFixed(0));
-			changeStat = 1;
-			reDraw = 1;
-	
-	
-			if(!goStat){
-				plot = $.plot($("#plotarea"), [getA1Data(),getA2Data(),
-		    	getLogData(0),getLogData(1),
-		    	getLogData(2),getLogData(3),
-		    	getLogData(4),getLogData(5),
-		    	getLogData(6),getLogData(7),
-		    	getCurH(trigPosH),getCurV(trigPosV),
-		    	getCurH(curAH),getCurV(curAV),
-		    	getCurH(curBH),getCurV(curBV)
-		    	], plotOptions);
-	 		}
-	 	}
-    }
-  */  
-    function updateLegend2() {
-        updateLegendTimeout = null;
-        
-        var pos = latestPosition;
-        var axes = plot.getAxes();
-//alert(pos.x+" "+pos.y);
-//alert(cursSel);
         if (pos.x < axes.xaxis.min || pos.x > axes.xaxis.max ||
         	pos.y < axes.yaxis.min || pos.y > axes.yaxis.max)
             return;
@@ -336,12 +253,9 @@ $(function () {
 			}
 
 
-	//	if(hoverOn) hoverOn = 0;
-	//	else hoverOn = 1;
 			changeStat = 1;
 			reDraw = 1;
 	
-//	if(hoverOn){
 	if(prevCursSel != cursSel){
 	
 			if(!goStat){
@@ -373,21 +287,6 @@ $(function () {
         if (!updateLegendTimeout)
             updateLegendTimeout = setTimeout(updateLegend2, 50);
     });
-
-
-//    $("#plotarea").bind("touchend",  function (event, pos, item) {
-//        latestPosition = pos;
-//        if (!updateLegendTimeout)
-//            updateLegendTimeout = setTimeout(updateLegend, 50);
-//   });
- 
-//    $("#plotarea").bind("touchmove",  function (event, pos, item) {
-//        latestPosition = pos;
-//        if (!updateLegendTimeout)
-//            updateLegendTimeout = setTimeout(updateLegend2, 50);
-//    });
-
- 
 
  
     function deltaABH() {
@@ -447,15 +346,9 @@ $(function () {
 	    dvA = (Math.abs(dv * (500/vDivM0)*2)).toFixed(1);
 		if(dvA<1000.0) i= dvA +"mV";
 		else i= (dvA/1000.0) +"V";
-//		alert(dv);
-//		alert(i);
-
 	    dvB = (Math.abs(dv * (500/vDivM1)*2)).toFixed(1);
 		if(dvB<1000.0) j= dvB +"mV";
 		else j= (dvB/1000.0) +"V";
-//		alert(dvB);
-//		alert(i);
-
 	    res = i+"  "+j;
  		return res;
     }
@@ -479,9 +372,6 @@ $(function () {
 		var y = [];
 		var k;
 
-//      	for(var i=100; i<= 200; ++i)
-//		lAarray[i] = trigCnt;
-		
        	for(var j=0; j<= lAarray.length; ++j){
 			for (var i = 0; i < 8; ++i){
 				if(lAarray[j] & (0x01<<i))
@@ -554,21 +444,7 @@ $(function () {
 	
 	function getDataFile(){
 		sidTx=(new Date().getTime()-startTime);
-//		fileNm = "/cgi-bin/msodata.csv";
-//		fileNm = "/cgi-bin/msodata.csv?sid="+ new Date().getTime();
-
-//		fileNm = "/cgi-bin/msodata.csv.gz?sid="+ sidTx;//cgi
-//		fileNm = "/fcgi-bin/msodata.csv.gz?sid="+ sidTx;//fcgi
-
-//		fileNm = "/fcgi-bin/msodata.csv?sid="+ sidTx;//fcgi
-
-//		fileNm = "/fcgi-bin/tmp/msodata"+sidCur+".csv?sid="+ sidCur;//fcgi
 		fileNm = "/fcgi-bin/tmp/msodata"+sidRx+".csv?sid="+ sidRx;//fcgi
-
-//		fileNm = "/fcgi-bin/msodata.csv";//fcgi
-//		fileNm = "/fcgi-bin/msodata.csv.gz";//fcgi
-//		fileNm = "/cgi-bin/msodata"+sidCur+".csv.gz";
-
 		makeRequest(fileNm,1);
 	}
 	
@@ -576,36 +452,25 @@ $(function () {
 
 	function MsoConnect(Cnct){
 		var Cncs;
-//		alert('tst1');
 		if(Cnct=="on")Cncs="C";
 		else Cncs = "Q";
 
 		sidTx=(new Date().getTime()-startTime);
 		$.ajax({
 		  type: 'GET',
-//			url: "/cgi-bin/mso28ctl.cgi",//cgi
 			url: "/fcgi-bin/mso28ctl.fcgi",//fcgi
 			data: "i="+Cncs+"&sid="+ sidTx,
-//			data: "sid="+ sidTx+"&i="+Cncs,
 		});
 	}
 
 	function MsoStat(){
-////		makeRequest("/cgi-bin/mso28ctl.cgi?i=T",0);
 		dataReceived = 0;
-//		makeRequest("/cgi-bin/mso28ctl.cgi?i=t",0);
 	 	sidTx=(new Date().getTime()-startTime);
-//		fileNm = "/cgi-bin/mso28ctl.cgi?i=t&sid="+sidTx; 
-
-//		if(goStatPrev) fileNm = "/cgi-bin/mso28ctl.cgi?sid="+sidCur+"&i=t";//cgi 
-//		else fileNm = "/cgi-bin/mso28ctl.cgi?sid="+sidTx+"&i=t"; //cgi
 
 		if((goStatPrev)&&((msoRawStat==28)||(msoRawStat==27)
 				||(msoRawStat==36)||(msoRawStat==37)))
 		 	fileNm = "/fcgi-bin/mso28ctl.fcgi?sid="+sidCur+"&i=t";//fcgi 
 
-
-//		if(goStatPrev) fileNm = "/fcgi-bin/mso28ctl.fcgi?sid="+sidCur+"&i=t";//fcgi 
 		else if((goStatPrev)&&(msoRawStat==35))
 			fileNm = "/fcgi-bin/mso28ctl.fcgi?sid="+sidRx+"&i=t"; //fcgi
 		else fileNm = "/fcgi-bin/mso28ctl.fcgi?sid="+sidTx+"&i=t"; //fcgi
@@ -619,12 +484,9 @@ $(function () {
 		sidTx=(new Date().getTime()-startTime);
 		$.ajax({
 		  type: 'GET',
-//		  url: "/cgi-bin/mso28ctl.cgi",//cgi
 		  url: "/fcgi-bin/mso28ctl.fcgi",//fcgi
-//		  data: "i=B&sid="+ sidTx,
 		  data: "sid="+sidTx+"&i=B",
 		});
-//		makeRequest("/cgi-bin/mso28ctl.cgi?i=B",1);
 	}
 
 
@@ -632,9 +494,7 @@ $(function () {
 		sidTx=(new Date().getTime()-startTime);
 		$.ajax({
 		  type: 'GET',
-//		  url: "/cgi-bin/mso28ctl.cgi",//cgi
 		  url: "/fcgi-bin/mso28ctl.fcgi",//fcgi
-//		  data: "i=I&sid="+ sidTx,
 		  data: "sid="+sidTx+"&i=I",
 		});
 	}
@@ -676,14 +536,10 @@ $(function () {
 
 	if((i=='A')||(i=='a'))sidCur=sidTx;
 
-//alert(outMsg);
 	$.ajax({
 		  type: 'GET',
-//		  url: "/cgi-bin/mso28ctl.cgi",//cgi
 		  url: "/fcgi-bin/mso28ctl.fcgi",//fcgi
 		  data: outMsg,
-//		  success: success,
-//		  dataType: dataType
 		});
 	}
 
@@ -691,14 +547,7 @@ $(function () {
 	function MsoArm(i){
 
 	dataReceived = 0;
-//		makeRequest(fileNm,0);
-
-
-//		fileNm = "/fcgi-bin/mso28ctl.fcgi?sid="+sidTx+"&i=t"; //fcgi
-
-
-		var outMsg;
-	//	alert(TRSPIWD);
+	var outMsg;
 	sidTx=(new Date().getTime()-startTime);
 	if(i=='A'){
 		outMsg = "/fcgi-bin/mso28ctl.fcgi?sid="+sidTx+
@@ -742,9 +591,7 @@ $(function () {
 		sidTx=(new Date().getTime()-startTime);		
 		$.ajax({
 		  type: 'GET',
-//		  url: "/cgi-bin/mso28ctl.cgi",//cgi
 		  url: "/fcgi-bin/mso28ctl.fcgi",//fcgi
-//		  data: "DC0="+i+"&sid="+ sidTx,
 		  data: "&sid="+sidTx+"&DC0="+i,
 		});
 	}
@@ -753,9 +600,7 @@ $(function () {
 		sidTx=(new Date().getTime()-startTime);
 		$.ajax({
 		  type: 'GET',
-//		  url: "/cgi-bin/mso28ctl.cgi",//cgi
 		  url: "/fcgi-bin/mso28ctl.fcgi",//fcgi
-//		  data: "DC1="+i+"&sid="+ sidTx,
 		  data: "sid="+sidTx+"DC1="+i,
 		});
 	}
@@ -793,7 +638,6 @@ $(function () {
 				break;
 
 			case msoState.ncMso:
-//alert("tst 2.1");
 				if(dataReceived) nextState = msoState.stbyMso;
 				else nextState = msoState.ncMso;
 				break;
@@ -938,14 +782,12 @@ $(function () {
 				updateInterval = 50;
 			break;
 			case msoState.waitMso:
-//alert("waitMso "+msoRawStat);
 				goStatPrev = 0;
 				rdBufReqSent = 0;
 				updateInterval = 50;
 			break;
 
 			case msoState.initMso:
-//alert("initMso "+msoRawStat);
 				statReqSent = 0;
 				MsoInit();
 				msoInitStat = 1;
@@ -954,9 +796,7 @@ $(function () {
 				updateInterval =1000;//1000
 				break;
 			case msoState.ncMso:
-//alert("ncMSO "+msoRawStat);
 				MsoConnect("on");
-//				MsoStat();
 				changeStat = 1;
 				statReqSent = 0;
 				trigCnt = 0;
@@ -965,16 +805,12 @@ $(function () {
 				updateInterval =500;//500
 				break;
 			case msoState.stbyMso:
-//alert("stbyMso "+msoRawStat);
-//				statReqSent = 0;
-				//if(dataReceived == 2)dataReceived = 0;
 				if(goStat)
 					updateInterval = 10;//20
 				else
 					updateInterval = 50;//20
 				break;
 			case msoState.statReqMso:
-//alert("statReqMso");
 				statCnt++;
 				MsoStat();
 				statReqSent = 1;
@@ -984,7 +820,6 @@ $(function () {
 					updateInterval = 50;//20
 				break;
 			case msoState.armMso:
-//alert("Arm A");
 				MsoArm('A');
 				goStatPrev = 1;
 				changeStat = 0;
@@ -993,7 +828,6 @@ $(function () {
 				trigCnt = 0;
 				drawCnt = 0;
 				statCnt = 0;	
-//				rdBufReqSent=0;
 				updateInterval = 50;//70
 				break;
 			case msoState.stopMso:
@@ -1012,21 +846,17 @@ $(function () {
 			case msoState.rbMso:
 				MsoReadBuffer();
 				rdBufReqSent = 1;
-//				trigCnt++;
 				updateInterval = 10;
 				break;
 			case msoState.reArmMso:
-//alert("reArm a");
 				MsoArm('a');
 				goStatPrev = 1;
 				statReqSent = 1;
 				rdBufReqSent = 0;
-//				rdBufReqSent=0;
 				updateInterval = 20;//70
 				break;
 			case msoState.getData:
 				getDataFile();
-//				goStatPrev = 0;
 				rdBufReqSent=0;
 				statReqSent = 0;
 				statCnt = 0;
@@ -1042,10 +872,6 @@ $(function () {
 				break;
 		}
 		trigPosV = 	($( "#slider-verticalTrgA1" ).slider( "value" )-19)/10;
-
- //	document.getElementById("diffABH").innerHTML = "<h1>T="+curTH()+" A="+curAHPos()+" B="+curBHPos()+" A-B="+deltaABH()+"</h1>";
- //	document.getElementById("diffABV").innerHTML = "<h1>A-B(A1/A2): "+deltaABV()+"</h1>";
-
 
 		if(goStat){
 			if(dataRdy == 1){

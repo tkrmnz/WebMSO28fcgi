@@ -3,29 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="google" content="notranslate" />
-<!--<title>MSO28 Webserver</title>
-  <script src="https://www.google.com/jsapi?key=ABQIAAAA4qSAFFB4UkLRQf_qe6I8IhSysJLvXphpkv6CZwxvvEm0osGb8BT5dUVE2vgtfNyIvniXRdq6khGMbw" 
-  <type="text/javascript"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>-->
-
 
 <script src="jquery-1.10.2.min.js"></script>  
 <script src="jquery-ui-1.10.3.custom.js"></script>  
-<!--<script src="jquery.ui.touch-punch.js"></script>--> 
 <script src="jquery.flot.min.js" language="javascript" type="text/javascript"></script>
-<!--<script src="jquery.flot.js" language="javascript" type="text/javascript"></script>-->
-<!--<script src="jquery.flot.touch.js" language="javascript" type="text/javascript"></script>-->
 <script src="jquery.flot.crosshair.min.js" language="javascript" type="text/javascript"></script>  
-<!--<script src="jquery.mobile-1.3.2.min.js" language="javascript" type="text/javascript"></script>-->  
-<!--<script src="jquery.flot.pack.js" language="javascript" type="text/javascript"></script>-->  
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../excanvas.min.js"></script><![endif]--> 
 <script src="MSO-plot.js"></script>  
 <script src="request.js"></script>
 <script src="MSO-ui.js"></script>
 <link rel="stylesheet" href="jquery-ui-1.8.16.custom.css"> 
 <link rel="stylesheet" href="mso.css"> 
-<!--<link rel="stylesheet" href="jquery.mobile-1.3.2.min.css">--> 
 <style type="text/css">  
 	body { font-family: Arial, Helvetica, sans-serif; }  
     table { border-collapse: collapse; }  
@@ -53,21 +40,8 @@
 	<div  class="padMe8">
 		<div id="msoStat"><h1>Stat:</h1></div>	
     </div>
-	<!--
-	<div  class="padMe20A">
-		<div id="diffABH"><h1>T=______A=______B=______A-B=______</h1></div>	
-    </div>
-	<div  class="padMe20B">
-		<div id="diffABV"><h1>A-B(A1/A2)</h1></div>	
-    </div>
--->
 </div>
 
-<!--	<a href="#" id="buttonShow" class="ui-state-default ui-corner-all">Setup</a>
-	<a href="#" id="buttonHide" class="ui-state-default ui-corner-all">Close</a>
--->
-
-<!--<div id="plotarea" class="ui-widget-content ui-corner-all" style="top:35px;width:740px;height:480px;"></div>-->    
 <div id="plotarea" class="ui-widget-content ui-corner-all" style="top:35px;width:852px;height:396px;"></div>   
 
 <div  class="padMe5">
@@ -93,12 +67,9 @@
 	      	<input type="radio" id="CHI2C" name="trgSrc" onclick="setTrgCh(0x08)"/><label for="CHI2C">I2C</label>
 	      	<input type="radio" id="CHSPI" name="trgSrc" onclick="setTrgCh(0x10)"/><label for="CHSPI">SPI</label>
 	  	</div>
-<!--	  	 <h3><a href="#"></a></h3> -->
-
 
 	<div class="togglerTrg">
 		<div id="effect-TA1" class="ui-widget-content ui-corner-all" style="padding-bottom:20px;" >
-<!--		<h3><div style="clear:both;font-size:85%;position: relative; left:30px">A1 Trigger Setup</div></h3>  -->
 			    <div id="radioSlpA1"style="clear:both;font-size:75%;position:relative;top:5px;left:5px;">
 			      	<input type="radio" id="tslpA1T" name="tSlopeA1" checked="checked" onclick="setTrgSlp(0x01)"/><label for="tslpA1T">Rising Edge</label>
 			      	<input type="radio" id="tslpA1F" name="tSlopeA1" onclick="setTrgSlp(0x00)"/><label for="tslpA1F">Falling Edge</label>
@@ -120,7 +91,6 @@
 		</div>
 
 		<div id="effect-TA2" class="ui-widget-content ui-corner-all" style="padding-bottom:20px;">
-<!--		 <h3><div style="clear:both;font-size:85%;">A2 Trigger Setup</div></h3>  -->
 			    <div id="radioSlpA2"style="clear:both;font-size:75%;position:relative;top:5px;left:5px;">
 			      	<input type="radio" id="tslpA2T" name="tSlopeA2" checked="checked" onclick="setTrgSlp(0x01)"/><label for="tslpA2T">Rising Edge</label>
 			      	<input type="radio" id="tslpA2F" name="tSlopeA2" onclick="setTrgSlp(0x00)"/><label for="tslpA2F">Falling Edge</label>
@@ -138,17 +108,6 @@
 						<div id="slider-horizontalWdthA2" style="height:10px;width:180px;position:relative; left:20px;margin:1px;"></div>
 				</div>
 
-<!--
-				<label for="trgA2" style="width:60px;margin:0px;top:0px;left:10px;">Trigger Voltage</label>	
-				<p>
-					<input type="text" id="trgA2" style="border:2;font-weight:bold;width:45px;position: relative; left: 10px;" />
-				</p>
-				<div id="slider-verticalTrgA2" style="height:180px;relative; left: 20px;"></div>
-		
-			    <div id="radioSlpA2"style="clear:both;font-size:90%;margin:5px;">
-			      	<input type="radio" id="tslpA2T" name="tSlopeA2" checked="checked" onclick="setTrgSlp(0x05)"/><label for="tslpA2T">F->T</label>
-			      	<input type="radio" id="tslpA2F" name="tSlopeA2" onclick="setTrgSlp(0x04)"/><label for="tslpA2F">T->F</label>
-			  	</div> -->
 	</div>
 		<div id="effect-TLA" class="ui-widget-content ui-corner-all">
 		 <h3><div style="clear:both;font-size:80%;">LA bit 7..0</div></h3>
@@ -168,7 +127,6 @@
 		  	</div>
 	</div>
 		<div id="effect-TI2C" class="ui-widget-content ui-corner-all">
-<!--		 <h3><div style="clear:both;font-size:85%;">I2C Trigger Setup</div></h3> -->
 		 <h3><div style="clear:both;font-size:80%;">I2C bit 7..0</div></h3>
 		 	<div class="padwd">
 			 	<div  class="padwdb7"> <button id="I2CTWb7" >Bit7</button>  </div>
@@ -213,14 +171,8 @@
 			 	<div  class="padwdb1"> <button id="I2CTWb25" >Bit25</button>  </div>
 			 	<div  class="padwdb0"> <button id="I2CTWb24" >Bit24</button>  </div>
 			</div>
-<!--			    <div id="radioSlpI2C"style="clear:both;font-size:90%;margin:5px;">
-			      	<input type="radio" id="tslpI2CT" name="tSlopeI2C" checked="checked" onclick="setTrgSlp(0x11)"/><label for="tslpI2CT">F->T</label>
-			      	<input type="radio" id="tslpI2CF" name="tSlopeI2C" onclick="setTrgSlp(0x10)"/><label for="tslpI2CF">T->F</label>
-			  	</div>
--->
 	</div>
 		<div id="effect-TSPI" class="ui-widget-content ui-corner-all">
-<!--		 <h3><div style="clear:both;font-size:85%;">SPI Trigger Setup</div></h3> -->
 		 <h3><div style="clear:both;font-size:80%;">SPI bit 7..0</div></h3>
 		 	<div class="padwd">
 			 	<div  class="padwdb7"> <button id="SPITWb7" >Bit7</button>  </div>
@@ -270,12 +222,6 @@
 		 	<div  class="spimd"> <button id="spimd0" >mode 0</button></div>
 		</div> 
 
-
-<!--			    <div id="radioSlpSPI"style="clear:both;font-size:90%;margin:5px;">
-			      	<input type="radio" id="tslpSPIT" name="tSlopeSPI" checked="checked" onclick="setTrgSlp(0x21)"/><label for="tslpSPIT">F->T</label>
-			      	<input type="radio" id="tslpSPIF" name="tSlopeSPI" onclick="setTrgSlp(0x20)"/><label for="tslpSPIF">T->F</label>
-			  	</div>
--->
 	  	</div>
 	</div>
 	</div>
@@ -335,23 +281,6 @@
 
 
 
-<!--	
-  <h3><a href="#">Connect</a></h3>
-  <div>
-    <form name="MSOctl" action="/cgi-bin/mso28ctl.cgi?i=T" method="GET"> 
-    	    <h3>Log: </h3>
-    <div id="log4"><h1>readyState:</h1></div>
-    <div id="log5"><h1>status:</h1></div>
-    <h1>
-      Connect MSO:<BR>
-      <input type="radio" name="i" value="Q" checked>Disconnect<BR>
-      <input type="radio" name="i" value="C">Connect<BR>
-      
-    </h1>
-    <INPUT type="submit" value="Set">
-    </form>
-  </div>
--->
 </div> 
 </div>
 
@@ -359,25 +288,8 @@
 </div><!-- End drop --><!--toggler-->
 
 </div> <!--padMe5-->
-<!--
-<div  class="padMe22">
-	<div id="effect-curs" class="ui-widget-content ui-corner-all" style="padding-bottom:10px;" >
-	    <div id="radioSelCurs"style="clear:both;font-size:100%;position:relative;top:5px;left:5px">
-     		<input type="radio" id="cursTHorz" name="radioSelCurs" onclick="cursSel=1"/><label for="cursTHorz">Tirgger Voltage</label>
-	      	<input type="radio" id="cursTVert" name="radioSelCurs" onclick="cursSel=2"/><label for="cursTVert">Trigger Position</label>
-	      	<input type="radio" id="cursAHorz" name="radioSelCurs" onclick="cursSel=3"/><label for="cursAHorz">Cursor A Voltage</label> 
-	      	<input type="radio" id="cursAVert" name="radioSelCurs" onclick="cursSel=4"/><label for="cursAVert">Cursor A Position</label>
-	     	<input type="radio" id="cursBHorz" name="radioSelCurs" onclick="cursSel=5"/><label for="cursBHorz">Cursor B Voltage</label>  
-	      	<input type="radio" id="cursBVert" name="radioSelCurs" onclick="cursSel=6"/><label for="cursBVert">Cursor B Position</label>
-	      	<input type="radio" id="cursNone" name="radioSelCurs" checked="checked" onclick="cursSel=0"/><label for="cursNone">Cursor None</label>
-  		</div> 
-  	</div> 
-</div> 
--->
 
 	<script>
-//	var trigPosH = 500;
-//	var trigPosV = 0.0;
 
 	$(function() {
 		$( "#tabs" ).tabs();
@@ -388,16 +300,8 @@
 			$( "#effect" ).show( 'drop', null, 500 );
 		};
 		http://www.amazon.com/TRENDnet-Unmanaged-GREENnet-Auto-Negotiation-Auto-MDIX/dp/B001QUA6R0/ref=sr_1_2?ie=UTF8&qid=1375671105&sr=8-2&keywords=5+port+switch+gigabit
-		// set effect from select menu value
-//		$( "#buttonShow" ).click(function() {
-//			runEffect();
-//			return false;
-//		});
-//		$( "#buttonHide" ).click(function() {
-//			$( "#effect:visible" ).removeAttr( "style" ).fadeOut();
-//		});
+		
 		$( "#effect" ).hide();
-//		$( "#check" ).button();
 		$( "#setupBtn" ).button({
 			text: false,
 			icons: {
@@ -547,14 +451,6 @@
 			}
 		});
 
-//		$("#cursCHorz").button({
-//			text: false,
-//			icons:{
-//				primary: "ui-icon-arrow-2-e-w-A"
-//			}
-//		});
-
-
 
 		$("#cursBVert").button({
 			text: false,
@@ -576,28 +472,6 @@
 				primary: "ui-icon-cancel"
 			}
 		});
-
-
-//		$( "#laTWb0" ).button({text: false,	label: TRLAWD.charAt(0)})
-//		.click(function() {
-//			var options;
-//			if ( $( this ).text() === "X" ){options = {label: "0"};}
-//			else if ( $( this ).text() === "0" ){options = {label: "1"};}
-//			else{options = {label: "X"};}
-//			$( this ).button( "option", options );
-//			TRLAWD=setCharAt(TRLAWD,0,$( this ).text());
-//		});
-
-
-//		$( "#laTWb1" ).button({text: false,	label: "X"})
-//		.click(function() {
-//			var options;
-//			if ( $( this ).text() === "X" ){options = {	label: "0"};}
-//			else if ( $( this ).text() === "0" ){options = {	label: "1"};}
-//			else{options = {label: "X"};}
-//			$( this ).button( "option", options );
-//		});
-
 	});
 	</script>
 
